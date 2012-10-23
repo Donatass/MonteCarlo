@@ -1,5 +1,13 @@
 #include <iostream>
 #include <cstdlib>
+#include <cmath>
+//Six hump camel back funkcijos realizacija
+
+double sixhump(double * x)
+{
+    double f = (4-2.1*x[0]*x[0]+pow(x[0],4.0)/3)*x[0]*x[0]+x[0]*x[1]* (-4+4*x[1])*x[1]*x[1];
+    return f;
+}
 
 using namespace std;
 
@@ -34,6 +42,12 @@ cout << "x = ( ";
 
         //cout << i+1  << ". " << vektorius[i] << endl; // Vektoriaus isvedimas i ekrana
     }
+    cout << ")" <<endl;
+cout << "Sixhump funkcijos reiksme siame taske: " <<sixhump (&vektorius[0]) << endl;
+
+   vektorius [0] = 0.089842;
+   vektorius [1] = -0.089842;
+   cout << "Sixhump funkcijos reiksme minimumo taske: " <<sixhump (&vektorius[0]) << endl;
 
     return 0;
 }
