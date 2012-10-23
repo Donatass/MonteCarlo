@@ -1,53 +1,108 @@
 #include <iostream>
 #include <cstdlib>
 #include <cmath>
-//Six hump camel back funkcijos realizacija
 
-double sixhump(double * x)
+
+
+int total_min, total_max;
+int count;
+char c;
+
+//total_min = total_max = 0;
+//count = 0;
+
+
+//do
+//
+
+   const int LENGTH = 10;
+   bool empty = true;
+   int min. max;
+
+   cout << "Enter a sequence of " << LENGTH << " integer numbers\n";
+
+   for ( int i = 0; i < LENGTH; i++ )
+   {
+      int number;
+
+      cout << "number " << i + 1 << ": ";
+      cin >> number;
+
+      if ( empty )
+      {
+         min = max = number;
+         empty = false;
+      }
+      else
+      {
+         if ( number < min ) min = number;
+         if ( max < number ) max = number;
+      }
+   }
+
+   total_min += min;
+   total_max += max;
+   ++count;
+
+   cout << "Minimum value is " << min
+         << ", and maximum value is " << max
+         << end;
+
+   cout << "Continue (y/n)? "
+   cin >> c;
+
+} while ( c == 'y' || c == 'Y' );
+
+cout << "The average minimum is " << total_min / count
+      << ", and the average maximum is " << total_max / count
+      << endl;
+
+
+
+
+
+int main ()
 {
-    double f = (4-2.1*x[0]*x[0]+pow(x[0],4.0)/3)*x[0]*x[0]+x[0]*x[1]* (-4+4*x[1])*x[1]*x[1];
-    return f;
-}
+    float TotalMin = 0;
+    float TotalMax = 0;
+    int count;
+    char c;
+    float number;
+    const int LENGTH = 10;
+    float min;
+    float max;
+    int i;
 
-using namespace std;
-
-int main()
-{
-    cout << "Monte Carlo realizacijos pradzia" << endl;
-    cout << "(RANDOM SEARCH METHOD)" << endl;
-    // Kintamuju apsirasymas
-    double f, x; // Funkcijos reiksmes ir argumentas x
-    int n; // Uzedavinio dimensija
-    double xSprendinys; // Argumento reiksme
-    int fSprendinys; // Uzdavinio sprendinys
-
-    // Vektoriu kurimas, kuriu elementai yra atitiktiniai realus skaiciai
-
-    double virsutinis_rezis, apatinis_rezis; // apsirasome intervalo rezius
-
-    cout << "Iveskite inervalo apatini ir virsutini rezius:" << endl;
-    cin >> apatinis_rezis >> virsutinis_rezis;
-    cout << "Iveskite vektoriaus dimensija (n):" << endl;
-    cin >> n;
-
-    double vektorius[n];
-cout << "x = ( ";
-
-
-    for(int i=0; i<n; i++)
+    do
     {
-        vektorius[i] = rand() * (virsutinis_rezis - apatinis_rezis) / RAND_MAX + apatinis_rezis;
-        cout <<vektorius[i] << " "; //Vektoriaus isvedimas i ekrana
+        cout << "Enter a set of 10 numbers\n";
 
+    for (i = 0; i < LENGTH; i++ )
+    {
+        cout << "number " << i + 1 << ": ";
+        cin >> number;
 
-        //cout << i+1  << ". " << vektorius[i] << endl; // Vektoriaus isvedimas i ekrana
+        if (number < min)
+            min = number;
+        else if (max < number)
+            max = number;
     }
-    cout << ")" <<endl;
-cout << "Sixhump funkcijos reiksme siame taske: " <<sixhump (&vektorius[0]) << endl;
 
-   vektorius [0] = 0.089842;
-   vektorius [1] = -0.089842;
-   cout << "Sixhump funkcijos reiksme minimumo taske: " <<sixhump (&vektorius[0]) << endl;
+    TotalMin += min;
+    TotalMax += max;
+    count++;
 
-    return 0;
-}
+    cout << "The lowest number is " << min << ", and highest number is " << max
+         << endl << endl;
+
+    cout << "Continue (y/n)? ";
+    cin >> c;
+
+    }while( c == 'y' || c == 'Y' );
+
+    //Set Formatting to 2 Decimal Places
+    cout << fixed << showpoint << setprecision(2);
+
+    //Display Averages
+    cout << "The low average is  "<< TotalMin / count << ", and the high"
+         << " average is " << TotalMax / count << endl << endl;
